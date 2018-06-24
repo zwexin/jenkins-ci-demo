@@ -1,7 +1,7 @@
 podTemplate(
     label: 'mypod', 
     inheritFrom: 'default',
-    serviceAccount :'jenkins';
+    serviceAccount :'jenkins',
     containers: [
         containerTemplate(
             name: 'golang', 
