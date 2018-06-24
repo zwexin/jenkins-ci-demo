@@ -1,8 +1,7 @@
 podTemplate(
     label: 'mypod', 
     inheritFrom: 'default',
-    namespace:'kube-system',
-    serviceAccount :'admin-user',
+    serviceAccount :'jenkins',
     containers: [
         containerTemplate(
             name: 'golang', 
