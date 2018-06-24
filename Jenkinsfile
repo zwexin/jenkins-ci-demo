@@ -1,7 +1,7 @@
 podTemplate(
     label: 'mypod', 
     inheritFrom: 'default',
-    namespace:'kube-system'
+    namespace:'kube-system',
     serviceAccount :'admin-user',
     containers: [
         containerTemplate(
