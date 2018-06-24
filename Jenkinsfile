@@ -47,7 +47,7 @@ podTemplate(
                 sh "mkdir -p /etc/docker"
                 sh "echo '{ \"insecure-registries\":[\"172.31.76.102:5000\"] }' >/etc/docker/daemon.json"
                 sh "docker build -t ${repository}:${commitId} ."
-                sh "docker push ${repository}:${commitId}"
+                sh "docker --config '/etc/docker' push ${repository}:${commitId}"
             }
         }
         stage ('Deploy') {
