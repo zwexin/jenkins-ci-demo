@@ -44,8 +44,6 @@ podTemplate(
             container ('docker') {
                 def registryIp = '172.31.76.108'
                 repository = "${registryIp}:5000/hello"
-                sh "mkdir -p /etc/docker"
-                sh "echo '{ \"insecure-registries\":[\"${repository}:5000\"] }' >/etc/docker/daemon.json"
                 sh "docker build -t ${repository}:${commitId} ."
                 sh "docker push ${repository}:${commitId}"
             }
