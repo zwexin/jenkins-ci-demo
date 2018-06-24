@@ -42,10 +42,10 @@ podTemplate(
         def repository
         stage ('Docker') {
             container ('docker') {
-                def registryIp = 'kube-registry.kube-system.svc.cluster.local'
+                def registryIp = '172.31.76.108'
                 repository = "${registryIp}:5000/hello"
                 sh "mkdir -p /etc/docker"
-                sh "echo '{ \"insecure-registries\":[\"kube-registry.kube-system.svc.cluster.local:5000\"] }' >/etc/docker/daemon.json"
+                sh "echo '{ \"insecure-registries\":[\"${repository}:5000\"] }' >/etc/docker/daemon.json"
                 sh "docker build -t ${repository}:${commitId} ."
                 sh "docker push ${repository}:${commitId}"
             }
