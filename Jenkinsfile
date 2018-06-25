@@ -52,7 +52,6 @@ podTemplate(
         stage ('Deploy') {
             container ('helm') {
                 sh "/helm init --client-only --skip-refresh"
-                sh "sleep 6000"
                 sh "/helm upgrade --install --wait --set image.repository=${repository},image.tag=${commitId} hello hello"
             }
         }
